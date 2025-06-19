@@ -1,0 +1,88 @@
+/* 全体リセットと背景 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #f0f8ff, #dceeff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* タイトル */
+h1 {
+  margin: 20px 0 10px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* ビンゴ盤面 */
+#bingo-board {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  grid-template-rows: repeat(5, 60px);
+  gap: 8px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* マスの見た目 */
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: #e6f7ff;
+  border-radius: 10px;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+/* 中央フリーやマークされたマス */
+.cell.center {
+  background: #81c784;
+  color: #fff;
+  animation: pop 0.3s ease-out;
+}
+
+/* アニメーション */
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 抽選ボタンなど */
+button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 8px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* 数値表示部 */
+#drawn-number {
+  font-size: 2rem;
+  color: #e53935;
+  font-weight: bold;
+  margin: 10px;
+}
