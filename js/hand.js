@@ -50,9 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.bingoBoard = bingoBoard;
 });
-// ---------------------------
-// ステップ② 入力・タイマー・判定
-// ---------------------------
+
+
 const inputEl = document.getElementById("number-input");
 const submitBtn = document.getElementById("submit-number");
 const timerEl = document.getElementById("timer");
@@ -98,7 +97,9 @@ function markNumber(num) {
 // ビンゴ判定
 function countBingoLinesWithHighlight(board) {
   let count = 0;
-
+  const drawSoundClear = document.getElementById("bingo-sound");
+  drawSoundClear.currentTime = 0;
+  drawSoundClear.play();
   // 横
   for (let i = 0; i < 5; i++) {
     if (board[i].every(cell => cell === "A")) {
@@ -166,6 +167,9 @@ submitBtn.addEventListener("click", () => {
 
         if (bingoCount >= 3) {
             stopTimer();
+            const bingoClear = document.getElementById("bingo-clear-sound");
+            bingoClear.currentTime = 0;
+            bingoClear.play();
             const elapsed = (performance.now() - startTime) / 1000;
             scoreEl.innerHTML = `🎉 クリア！スコア: <strong>${elapsed.toFixed(2)}</strong> 秒`;
             let btn = document.createElement("button");
