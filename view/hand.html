@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>タイムアタック・ビンゴ</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin: 2em; }
+    #bingo-board {
+      display: grid;
+      grid-template-columns: repeat(5, 60px);
+      gap: 8px;
+      justify-content: center;
+      margin: 20px auto;
+    }
+    .cell {
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border: 2px solid #333;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: white;
+    }
+    .marked {
+      background-color: #4caf50;
+      color: white;
+    }
+    #timer {
+      font-size: 24px;
+      margin: 10px;
+    }
+    #score-result {
+      font-size: 20px;
+      margin-top: 20px;
+      color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎯 タイムアタック・ビンゴ</h1>
+
+  <div id="timer">⏱ 経過時間: 0.00 秒</div>
+  <p>現在のビンゴ成立数 : <span id ='bingoCounter'>0</span></p>
+  <div id="bingo-board"></div>
+
+  <div>
+    <input type="number" id="number-input" placeholder="1〜50の数字" min="1" max="50" />
+    <button id="submit-number">決定</button>
+  </div>
+  <span id ='backButton'></span>
+
+  <div id="score-result"></div>
+
+  <script src="../../js/hand.js"></script>
+</body>
+</html>
