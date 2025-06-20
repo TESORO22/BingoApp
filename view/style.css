@@ -116,3 +116,9 @@ button#submit-number:hover {
 .bingo-line {
   background-color: rgb(138, 228, 158) !important;  /* 目立たせるために強制適用 */
 }
+
+.rule-text {
+  text-align: left;
+  line-height: 1.6;
+  padding: 0 10px;
+}
