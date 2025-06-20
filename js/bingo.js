@@ -96,6 +96,13 @@ document.getElementById('draw-number').addEventListener('click',()=>{
     const drawSoundClear = document.getElementById("draw-sound-clear");
     drawSoundClear.currentTime = 0;
     drawSoundClear.play();
+    let btn = document.createElement("button");
+    btn.addEventListener("click",function(){
+      location.replace("front.html");
+    },false);
+    btn.innerHTML = "タイトル画面に戻る";
+    let target = document.getElementById('backButton');
+    target.appendChild(btn);
     }
 });
 
