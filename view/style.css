@@ -86,3 +86,39 @@ button:disabled {
   font-weight: bold;
   margin: 10px;
 }
+/* 入力欄のスタイルを強化 */
+input#number-input {
+  font-size: 24px;       /* 文字を大きく */
+  width: 150px;          /* 横幅を広く */
+  height: 50px;          /* 高さを広く */
+  text-align: center;    /* 数字を中央寄せ */
+  border: 2px solid #333;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+/* 決定ボタンのスタイルも合わせて調整 */
+button#submit-number {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button#submit-number:hover {
+  background-color: #1976d2;
+}
+
+.bingo-line {
+  background-color: rgb(138, 228, 158) !important;  /* 目立たせるために強制適用 */
+}
+
+.rule-text {
+  text-align: left;
+  line-height: 1.6;
+  padding: 0 10px;
+}

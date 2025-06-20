@@ -56,7 +56,7 @@ document.getElementById("generate").addEventListener("click", () => {
   currentCard = generateBingoCard();
   renderBingoCard(currentCard);
 
-   drawPool = shuffle([...Array(55)].map((_, i) => i + 1));
+   drawPool = shuffle([...Array(50)].map((_, i) => i + 1));
 });
 
 let drawPool= [];
@@ -92,17 +92,24 @@ document.getElementById('draw-number').addEventListener('click',()=>{
     if(bingoCount >= 3){
         setTimeout(()=>{
         alert(`🎉 ゲームクリア！ Score: ${counter}`);
+        counter = 0;
     },0);
     const drawSoundClear = document.getElementById("draw-sound-clear");
     drawSoundClear.currentTime = 0;
     drawSoundClear.play();
-    let btn = document.createElement("button");
-    btn.addEventListener("click",function(){
-      location.replace("front.html");
-    },false);
-    btn.innerHTML = "タイトル画面に戻る";
-    let target = document.getElementById('backButton');
-    target.appendChild(btn);
+      let target = document.getElementById('backButton');
+
+      // すでにボタンがあるか確認（class名やidで判定）
+      if (!document.getElementById('back-to-title')) {
+        let btn = document.createElement("button");
+        btn.id = "back-to-title"; // 一意なIDを付ける
+        btn.innerHTML = "タイトル画面に戻る";
+        btn.addEventListener("click", function () {
+          location.replace("front.html");
+        }, false);
+
+        target.appendChild(btn);
+}
     }
 });
 
